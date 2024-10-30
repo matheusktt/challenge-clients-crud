@@ -1,15 +1,21 @@
 package com.devsuperior.challenge_clients_crud.dto;
 
 import com.devsuperior.challenge_clients_crud.entities.Client;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
 
 public class ClientDTO {
 
     private Long id;
+
+    @NotBlank(message = "Required field")
     private String name;
     private String cpf;
     private Double income;
+
+    @PastOrPresent(message = "The date not valid")
     private LocalDate birthDate;
     private Integer children;
 
